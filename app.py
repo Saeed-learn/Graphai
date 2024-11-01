@@ -28,7 +28,7 @@ else:
     num_rows = st.sidebar.number_input("Number of Rows", min_value=1, value=5)
     num_cols = st.sidebar.number_input("Number of Columns", min_value=1, value=3)
     df = pd.DataFrame(columns=[f"Column {i+1}" for i in range(num_cols)], index=range(num_rows))
-    df = st.sidebar.experimental_data_editor(df)
+    df = st.sidebar.data_editor(df)  # Updated to use `data_editor` instead of `experimental_data_editor`
 
 if 'df' in locals():
     st.write("## Data Preview", df)
@@ -104,4 +104,3 @@ if 'df' in locals():
     )
 else:
     st.info("Awaiting CSV file upload or data entry.")
-
